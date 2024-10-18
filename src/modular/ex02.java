@@ -16,7 +16,8 @@ public class ex02 {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Introuzca su edad: ");
         int edad = entrada.nextInt();
-            //if ()
+        boolean major = false;
+        
     }
     public static boolean esMajorEdat(int edat) {
         return edat >= 18;
