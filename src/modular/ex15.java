@@ -21,18 +21,14 @@ public class ex15 {
         int b = entrada.nextInt();
         System.out.println("Introduzca el valor del tercer costado: ");
         int c = entrada.nextInt();
-        boolean siEs = triangular(a, b, c);
-        if (siEs){
-            System.out.println("Se cumple la desigualdat triangular.");
+        //llamar al metodo y mostrar mensajes en funcion de si es true o false
+        if (triangular(a, b, c)){
+            System.out.println("Se cumple la desigualdat triangular :3");
         } else {
             System.out.println("No se cumple la desigualdad triangular...");
         }
     }
-    public static boolean triangular (int x, int y, int z){
-        if (x + y > z && x + z > y && y + z > x){            
-            return true; 
-        } else {
-            return false;
-        }        
+    public static boolean triangular (int x, int y, int z){ //metodo que realiza la desigualdad triangular
+        return x + y > z && x + z > y && y + z > x; //devuelve true
     }
 }

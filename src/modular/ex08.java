@@ -17,19 +17,19 @@ import java.util.Scanner;
 public class ex08 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
+        //pedir y declarar variables
         System.out.println("Introduzca el valor A:");
         int a = entrada.nextInt();
         System.out.println("Introduzca el valor B:");
         int b = entrada.nextInt();
-        int suma = sumatori(a, b);
-        System.out.println("La suma de esos valores es "+suma);
-        int prod = productori(a, b);
-        System.out.println("La suma de esos valores es "+prod);
+        //llamar a los metodos y mostrar mensaje
+        System.out.println("La suma de esos valores es "+sumatori(a, b));
+        System.out.println("La suma de esos valores es "+productori(a, b));
     }
-    public static int sumatori (int m, int n){
+    public static int sumatori (int m, int n){ //metodo que suma dos valores y devuleve el resultado
         return m+n;
     }
-    public static int productori (int m, int n){
+    public static int productori (int m, int n){ //metodo que devuelve el  producto de dos valores
         return m*n;
     }
 }

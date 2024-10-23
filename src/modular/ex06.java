@@ -16,18 +16,18 @@ import java.util.Scanner;
 public class ex06 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Introduzca un numero: ");
+        //pedir y declarar variable
+        System.out.println("Introduzca un número: ");
         int a = entrada.nextInt();
-        System.out.println("Introduzca otro numero: ");
+        System.out.println("Introduzca otro número: ");
         int b = entrada.nextInt();
-        int mayor = compara(a, b);
-        switch (mayor) {
+        switch (compara(a, b)) { //llamar al metodo y mostrar mensaje
             case +1 -> System.out.println(a+" es mayor que "+b);
             case 0 -> System.out.println(a+" y "+b+" son iguales");
             case -1 -> System.out.println(b+" es mayor que "+a);
         }
     }
-    public static int compara (int x, int y){
+    public static int compara (int x, int y){ //metodo que compara 2 valores y dice si uno es mayor que el otro o son iguales
         if (x > y){
             return +1;
         } else if (x<y){

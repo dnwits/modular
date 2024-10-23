@@ -13,17 +13,17 @@ import java.util.Scanner;
  */
 public class ex02 {
     public static void main(String[] args) {
+        //pedir y declarar variable
         Scanner entrada = new Scanner(System.in);
         System.out.println("Introuzca su edad: ");
         int edad = entrada.nextInt();
-        if (esMajorEdat(edad)) {
+        if (esMajorEdat(edad)) { //llaamr al metodo y mostrara mensaje correspondiente
             System.out.println("Eres mayor de edad.");
         } else {
             System.out.println("Eres menor de edad.");
-        }
-        
+        }       
     }
-    public static boolean esMajorEdat(int edat) {
-        return edat >= 18;
+    public static boolean esMajorEdat(int edat) { //metodo que devuelve booleando con parametro int
+        return edat >= 18; //si edad mayor o igual a 18 return true
     }
 }

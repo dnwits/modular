@@ -15,14 +15,14 @@ import java.util.Scanner;
 public class ex03 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
+        //pedir y declarar variables
         System.out.println("Introduxca un número entero (A): ");
         int a = entrada.nextInt();
         System.out.println("Introduxca un número entero (B): ");
         int b = entrada.nextInt();
-        int menorValor = menor(a, b);
-        System.out.println("El menor entre A y B es: " + menorValor);
+        System.out.println("El menor entre A y B es: " + menor(a, b)); //llamar al metodo y mostrar resultado por pantalla
     }
-    public static int menor (int x, int y){
+    public static int menor (int x, int y){ //metodo que compara 2 valores y devuelve el mayor
          if (x < y) {
             return x;
         } else {

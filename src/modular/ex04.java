@@ -15,16 +15,17 @@ import java.util.Scanner;
 public class ex04 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Introduzca un numero: ");
+        //pedir y declarar variable
+        System.out.println("Introduzca un número: ");
         int num = entrada.nextInt();
-        int signe = obteSigne(num);
-        switch (signe) {
+        int signe = obteSigne(num); //llamar al metodo 
+        switch (signe) { //según lo que devuelva mostrar mensaje
             case +1 -> System.out.println("El número es positivo");
             case 0 -> System.out.println("El número es cero");
             case -1 -> System.out.println("El número es negativo");
         }
     }
-    public static int obteSigne(int x){
+    public static int obteSigne(int x){ //metodo que comprueba si valor es positivo, negativo o cero
         if (x >= 1){
             return +1;
         } else if (x==0){

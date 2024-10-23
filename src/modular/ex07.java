@@ -15,16 +15,17 @@ import java.util.Scanner;
 public class ex07 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
+        //comunicar función del programa y declara variable
         System.out.println("Introduzca precios de articulos para saber el IVA. Para salir ponga 0.");
         float art;
-        do {      
+        do { //bucle para que el usuario introduzca precio articulo
         System.out.println("Introduzca el precio de su artículo: ");
-        art = entrada.nextFloat();
-        float iva = preuAmbIva(art);
-            System.out.println("El IVA es de "+iva);
-        } while (art != 0);       
+        art = entrada.nextFloat(); //asignar valor a articulo
+            System.out.println("El IVA es de "+preuAmbIva(art)); //mostrar mensaje y llamar metodo para el resultado
+        } while (art != 0); //condición para que se cierre el programa
+        System.out.println("Ha cerrado el programa, hasta la próxima!");
     }
-    public static float preuAmbIva(float preu){
+    public static float preuAmbIva(float preu){ //metodoq para obtener el % de IVA
         return ((preu*21)/100);
     }
 }

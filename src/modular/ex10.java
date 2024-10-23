@@ -15,28 +15,28 @@ import java.util.Scanner;
 public class ex10 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
+        //pedir y declarar variables
         System.out.println("Introduzca el año: ");
         int yr = entrada.nextInt();
         System.out.println("Introduzca el mes: ");
         int mnth = entrada.nextInt();
         System.out.println("Introduzca el día: ");
         int dy = entrada.nextInt();
-        boolean correct = date(yr, mnth, dy);
-        if (correct){
-            System.out.println("La fecha es valida :3");
+        if (date(yr, mnth, dy)){ //llamar al metodo
+            System.out.println("La fecha es válida :3"); //mensaje de fecha correcto
         } else {
-            System.out.println("La fecha es erronea...");
+            System.out.println("La fecha es erronea..."); //mensaje de error
         }
     }
-    public static boolean date (int year, int month, int day){
+    public static boolean date (int year, int month, int day){ //metodo que indica si los parametros introducidos son pausibes o no
         if (year<=0){
             return false;
-        }
-        if (month<1 || month>12){
+        } if (month<1 || month>12){
             return false;
-        }
-        if (day < 1 || day > 30){
+        } if (day < 1 || day > 30){
         return false;
+        }else{
+            
         }
         return true;
     } 

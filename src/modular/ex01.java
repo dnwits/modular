@@ -14,17 +14,15 @@ import java.util.Scanner;
  */
 public class ex01 {
     public static void main(String[] args) {
+        //pedir y declarar variables 
         Scanner entrada = new Scanner(System.in);
         System.out.println("Entroduzca valor A: ");
         double valor1 = entrada.nextDouble();
         System.out.println("Entroduzca valor B: ");
         double valor2 = entrada.nextDouble();
-        double producto = 
-                producte(valor1, valor2);
-        System.out.println("El resultado es: "+ producto);
+        System.out.println("El resultado es: "+ producte(valor1, valor2));
     }
-    public static double producte (double x, double y){
-    double prod = x * y;
-    return prod;
+    public static double producte (double x, double y){ //metodo que multiplica x*y
+        return x*y; //devuelve el resultado
     }
 }

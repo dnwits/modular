@@ -15,12 +15,12 @@ import java.util.Scanner;
 public class ex05 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
+        //pedir y declarar variable
         System.out.println("Introduzca el número de millas: ");
         double mi = entrada.nextDouble();
-        double km = millesAKM(mi);
-        System.out.println("Eso son "+km+" kilometros");
+        System.out.println("Eso son "+millesAKM(mi)+" kilometros"); //llamar metodo y mostrar resultado
     }
-    public static double millesAKM(double milles){
+    public static double millesAKM(double milles){ //metodo que devuelve milla*equivalente en Km
         return (milles*1.6093);
     }
 }

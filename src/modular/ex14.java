@@ -21,12 +21,11 @@ public class ex14 {
         double cateto1 = entrada.nextDouble();       
         System.out.println("Introduzca el valor del segundo cateto: ");
         double cateto2 = entrada.nextDouble();        
-        //utilizar metodo
-        double hipotenusa = hipotenusa(cateto1, cateto2);        
-        System.out.println("La hipotenusa es " + hipotenusa); //resultado en pantalla
+        //utilizar metodo    
+        System.out.println("La hipotenusa es " + hipotenusa(cateto1, cateto2)); //resultado en pantalla
     }
     //method hipotenusa
     public static double hipotenusa(double cat1, double cat2) {
-        return Math.sqrt((cat1 * cat1) + (cat2 * cat2)); //pitagoras
+        return Math.sqrt((cat1 * cat1) + (cat2 * cat2)); //pitagoras utilizando Math.sqrt para la raiz cuadrada
     }
 }
