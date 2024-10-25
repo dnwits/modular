@@ -22,8 +22,8 @@ public class ex19 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         int opcion;       
-        do {
-            mostraMenu(); // Mostrar el menú
+        do { //iniciar bucle
+            mostraMenu(); //llamar metodo del menú
             opcion = entrada.nextInt();           
             switch (opcion) {
                 case 1 -> { //calculos con rectángulos                   
@@ -48,11 +48,11 @@ public class ex19 {
                 case 0 -> //salir del program
                     System.out.println("Saliendo del programa...");
                     
-                default -> System.out.println("Opción no válida, elige de nuevo.");
+                default -> System.out.println("Error, opción no válida..."); //error si selección fuera del rango
             }
-        } while (opcion != 0);
+        } while (opcion != 0); //romper el bucle cuando opcion=0
     }
-    public static void mostraMenu() {
+    public static void mostraMenu(){ //mostrar menú con las opciones definidas
         System.out.println("Menú:");
         System.out.println("0. Sortir");
         System.out.println("1. Càlculs amb rectangles");
@@ -61,16 +61,16 @@ public class ex19 {
     }   
     //metodos para cálculos con rectángulos
     public static double perimetroRectangulo(double base, double altura){
-        return 2 * (base + altura);
+        return 2 * (base + altura); //calcular y devolver el perimetro
     }
     public static double areaRectangulo(double base, double altura){
-        return base * altura;
+        return base * altura; //calcular y devolver el area
     }  
-    //metodos para cálculos con círculos
+    //metodos para calculos con círculos
     public static double perimetroCirculo(double radio){
-        return 2 * Math.PI * radio; // Circunferencia = 2πr
+        return 2 * Math.PI * radio; // calcular y devolver circunferencia
     }
     public static double areaCirculo(double radio){
-        return Math.PI * radio * radio; // Área = πr^2
+        return Math.PI * radio * radio; // calcular y devolver el area
     }
 }

@@ -14,17 +14,16 @@ import java.util.Scanner;
 public class ex18 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        // Pedir los segundos al usuario
+        //pedir los segundos al usuario
         System.out.println("Introduce el tiempo en segundos: ");
         int totalSegundos = entrada.nextInt();
-        // Llamar al método para convertir los segundos a horas, minutos y segundos
+        //llamar al método para convertir los segundos a horas, minutos y segundos
         segonsAhms(totalSegundos);
     }
     public static void segonsAhms(int secTotales){
-        int horas = secTotales / 3600; // Cada hora tiene 3600 segundos
-        int minutos = (secTotales % 3600) / 60; // Los minutos se obtienen del resto de la división entre 3600
-        int segundos = secTotales % 60; // Los segundos restantes
-        // Mostrar el resultado
-        System.out.println("Horas: " + horas + ", minutos: " + minutos + ", segundos: " + segundos);
+        int horas = secTotales / 3600; //1 hora tiene 3600 segundos
+        int minutos = (secTotales % 3600) / 60; //calcular los minutos
+        int segundos = secTotales % 60; //los segundos restantes
+        System.out.println("Horas: "+horas+", minutos: "+minutos+", segundos: "+segundos); //mostrar resultata per pantalla
     }
 }

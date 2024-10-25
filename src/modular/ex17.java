@@ -25,32 +25,31 @@ més de 60.000 € ////// 25%
 public class ex17 {
     public static void main(String[] args) {
      Scanner entrada = new Scanner(System.in);
-        // Pedir datos al usuario
+        //pedir y declarar variables
         System.out.println("Introduzca su base de IRPF en €: ");
         double baseImponible = entrada.nextDouble();
         System.out.println("Introduzca su edad: ");
         int edad = entrada.nextInt();
         System.out.println("¿Es usted discapacitado? (true/false): ");
         boolean esDiscapacitado = entrada.nextBoolean();
-        // Verificar si está exento de IRPF
-        if (esDiscapacitado) {
+        //comprobar si no excempta de impuestos
+        if (esDiscapacitado){
             System.out.println("Está exento de pagar el IRPF.");
-        } else {
-            // Calcular la cuota a pagar
+        } else{
+            //calcular la cuota a pagar mediante el metodo
             double cuota = calculaQuota(baseImponible);
-            // Aplicar la reducción de 250€ si es mayor o igual a 65 años
+            //reduccir 250euros si es >= a 65 años
             if (edad >= 65) {
                 cuota -= 250;
             }
-            // La cuota no puede ser negativa
+            //para que la cuota no sea negativa
             if (cuota < 0) {
                 cuota = 0;
             }
-            // Mostrar el resultado
-            System.out.println("La cuota a pagar es: " + cuota + " €.");
+            System.out.println("La cuota a pagar es: "+cuota+" €."); //mostrar resultat
         }
     }
-    // Método para calcular la cuota según la base imponible
+    //metodo para calcular la cuota a partir de la base
     public static double calculaQuota(double baseImponible) {
         double cuota;
         if (baseImponible <= 10000) {
@@ -64,6 +63,6 @@ public class ex17 {
         } else {
             cuota = 10000 * 0.05 + 5000 * 0.08 + 15000 * 0.12 + 30000 * 0.20 + (baseImponible - 60000) * 0.25;
         }
-        return cuota;
+        return cuota; //devolver resultado
     }
 }
