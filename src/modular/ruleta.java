@@ -6,36 +6,38 @@ package modular;
 
 import java.util.Random;
 import java.util.Scanner;
-
 /**
  *
  * @author ves8167
  */
 public class ruleta {
     public static void main(String[] args) {
-        //Scanner entrada = new Scanner(System.in);
         int puntos = 100;
-        //String comunicado = "n";
-        boolean continua = true;
+        boolean continua;
         int numeroRuleta;
-        int numeroApuesta = 0;
-        int cantidadApuesta= 0;
-        System.out.println("Bienvenido a la ruleta!");
+        int numeroApuesta;
+        int cantidadApuesta = 0;
+        int premio=0;
+        System.out.println("¡Bienvenido a la ruleta!");
         System.out.println("La apuesta a un número es desde el 1 al 36.");
         System.out.println("Para cualquier número impar es 37 y 38 para los pares.");
         do {            
             System.out.println("Actualmente dispone de "+puntos+" puntos.");
             obtenirQuantitatAposta(cantidadApuesta);
-            obtenirTipusAposta();
+            puntos-=cantidadApuesta;
+            System.out.println("puntos"+puntos);
+            numeroApuesta = obtenirTipusAposta();
             numeroRuleta= ruletaTir();
             System.out.println("Ha salido el: "+numeroRuleta);
             calcularPremi(numeroRuleta, numeroApuesta, cantidadApuesta);
-            puntos=cantidadApuesta;
+            System.out.println("puntos"+puntos);
+            premio+=cantidadApuesta;
+            System.out.println("puntos"+puntos);
+            puntos+=premio;
             System.out.println("Actualmente le quedan "+puntos+" puntos");
-            
-            
-        } while (puntos!=0 || continua==false);
-        
+            continua = obtenirContinuar();                        
+        } while (puntos!=0 && continua== true);
+        System.out.println("Gracias por jugar. Su saldo final es de " + puntos + " puntos.");
     }
     public static int obtenirQuantitatAposta(int punts){ // Pregunta al jugador els punts que vol apostar. 
         //No s'accepten valors superiors al saldo de punts que té
@@ -44,8 +46,9 @@ public class ruleta {
         punts = entrada.nextInt();
         if (punts<=punts && punts >=1){
             return punts;
-        } else{
-            return punts; //mensaje de error
+        } else {
+            System.out.println("Apuesta inválida...");
+            return 0;
         }
     }
     public static int obtenirTipusAposta(){ //Pregunta al jugador el número per a apostar. Els valors permesos estan entre 1 i 38
@@ -69,26 +72,30 @@ public class ruleta {
         for (int i = 1; i <= rule; i++) {
             System.out.print("*");
         }
+        System.out.println();
         return rule;
     }
     public static int calcularPremi (int numRuleta, int numAposta, int quantitatAposta){ //Calcula l'import del premi   
-        if (numAposta==numRuleta){
-            return quantitatAposta*26;
-        } else if (numAposta==37 && numAposta!=numRuleta){
-            //numRuleta = numRuleta%2=1;
-            quantitatAposta*=2;
-        } else if (numAposta==38 && numAposta!=numRuleta){
-            //numRuleta = numRuleta%2=0;
-            quantitatAposta*=2;
-        } else if (numAposta<=0 || numAposta >=39){
-            //inputString(mensaje);
-            return quantitatAposta;
+        if (numAposta == numRuleta){ // Apuesta exacta, premio es la cantidad apostada multiplicada por 36        
+            System.out.println("¡Número correcto!");
+            return quantitatAposta * 36;            
+        }else if (numAposta == 37 && numRuleta % 2 != 0){ // Apuesta a impar y el número de la ruleta es impar
+            System.out.println("Número impar, es correcto :3");
+            return quantitatAposta * 2;
+        } else if (numAposta == 38 && numRuleta % 2 == 0){ // Apuesta a par y el número de la ruleta es par        
+            System.out.println("Número par, es correcto :3");
+            return quantitatAposta * 2;
+        //} else if (numAposta < 1 || numAposta > 38){
+        //System.out.println("Número de apuesta incorrecto. No se juega en esta tirada..."); // Entrada incorrecta
+            //return 0;
         }
-        return quantitatAposta;
+        System.out.println("No has acertado... Suerte en la próxima.");
+        return quantitatAposta; // Si no se cumple ninguna condición, el premio es 0
     }
     public static boolean obtenirContinuar(){ // Pregunta al jugador si vol continuar jugant
-        System.out.println("Desea continuar? (responda con true o false)");
-        boolean continua = false;
-        return continua;
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("¿Desea continuar jugando? (escriba 'sí' para continuar o 'no' para terminar):");
+        String respuesta = entrada.next().toLowerCase();
+        return respuesta.equals("sí");
     }
 }
