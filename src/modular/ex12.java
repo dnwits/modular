@@ -27,5 +27,6 @@ public class ex12 {
         preu_fin = preu_ini - preu_fin; //importante poner en orden
         preu_fin = (preu_fin*100)/preu_ini;
         return preu_fin;
+        // return (1 - (preuAmbDescompte / preuSenseDescompte)) * 100;
     }
 }

@@ -22,12 +22,14 @@ public class ex03 {
         int b = entrada.nextInt();
         System.out.println("El menor entre A y B es: " + menor(a, b)); //llamar al metodo y mostrar resultado por pantalla
     }
-    public static int menor (int x, int y){ //metodo que compara 2 valores y devuelve el mayor
+    public static int menor (int x, int y){ //metodo que compara 2 valores y devuelve el menor
          if (x < y) {
             return x;
         } else {
             return y;
         }
+        // return (x < y)? x : y;
+        //arriba, otra forma de if/else. Primero comparación (nosequé, es cierto?) si lo es, devuelve X (si no, entonces :) y return Y
     }
     
 }

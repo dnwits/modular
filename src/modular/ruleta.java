@@ -25,23 +25,20 @@ public class ruleta {
             System.out.println("Actualmente dispone de "+puntos+" puntos.");
             cantidadApuesta =  obtenirQuantitatAposta();
             puntos= puntos - cantidadApuesta;
-            System.out.println("paso 1 puntos "+puntos);
             numeroApuesta = obtenirTipusAposta();
             numeroRuleta= ruletaTir();
             System.out.println("Ha salido el: "+numeroRuleta);
             premio = calcularPremi(numeroRuleta, numeroApuesta, cantidadApuesta);
-            System.out.println("paso 2 puntos "+puntos);
             //premio+=cantidadApuesta;
-            System.out.println("paso 3 puntos "+puntos);
             puntos+=premio;
             System.out.println("Actualmente le quedan "+puntos+" puntos");
             continua = obtenirContinuar();
-            if(continua == false){
-                System.out.println("Yay! Gambling :3");
-            } else {
-                System.out.println("Nice decision.");
-            }
-        } while (puntos!=0 && continua== false);
+            //if(continua==true){
+            //    System.out.println("Yay! Gambling :3");
+            //} else{
+            //    System.out.println("Nice decision.");
+            //}
+        } while (puntos!=0 && continua== true);
         System.out.println("Gracias por jugar. Su saldo final es de " + puntos + " puntos.");
     }
     public static int obtenirQuantitatAposta(){ // Pregunta al jugador els punts que vol apostar. 
@@ -101,6 +98,6 @@ public class ruleta {
         Scanner entrada = new Scanner(System.in);
         System.out.println("¿Desea continuar jugando? (escriba 'sí' para continuar o 'no' para terminar):");
         String respuesta = entrada.next().toLowerCase();
-        return respuesta.equals("sí");
+        return respuesta.equals("si");
     }
 }

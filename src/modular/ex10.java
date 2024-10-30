@@ -29,7 +29,7 @@ public class ex10 {
         }
     }
     public static boolean date (int year, int month, int day){ //metodo que indica si los parametros introducidos son pausibes o no
-        if (year<=0){
+        if (year<=0 && year>=2024){
             return false;
         } if (month<1 || month>12){
             return false;
@@ -39,5 +39,6 @@ public class ex10 {
             
         }
         return true;
+        //return (month >= 1 && month >=12 && day >=1 && day <=30)
     } 
 }

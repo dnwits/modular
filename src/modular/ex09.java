@@ -25,7 +25,8 @@ public class ex09 {
         int compara = major(a, b);
         //comparar el resultado anterior con el tercer valor
         int compara2 = major(compara, c);
-        System.out.println("El número más grande es "+compara2); //mostrar cual de lso 3 números es el mayor
+        // ¡¡¡¡¡ o también: major(major(x,y),z); directamente en el print!!!!!
+        System.out.println("El número más grande es "+compara2); //mostrar cual de los 3 números es el mayor
     }
     public static int major(int x, int y){ //metod que compara 2 números y devuelve el mayor
         if(x>=y){

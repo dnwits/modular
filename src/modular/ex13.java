@@ -23,13 +23,11 @@ public class ex13 {
         pyramid(algo, num); //llamar al metodo con variables del main
     }
     public static void pyramid (char caracter ,int line){ //metodo void porque devuelve ningun valor
-         for (int i = 1; i <= line; i++) {
-            // mostrar la cantidad de caracteres en la linea 
-            for (int j = 1; j <= i; j++) {
+         for (int i = 1; i <= line; i++) { // el numero de lineas en vertical            
+            for (int j = 1; j <= i; j++) { // mostrar la cantidad de caracteres en la linea horizontal
                 System.out.print(caracter);
             }
-            //saltos de linea
-            System.out.println();
+            System.out.println(); // saltos de linea
         }
     }
 }

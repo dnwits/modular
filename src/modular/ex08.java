@@ -27,9 +27,20 @@ public class ex08 {
         System.out.println("La suma de esos valores es "+productori(a, b));
     }
     public static int sumatori (int m, int n){ //metodo que suma dos valores y devuleve el resultado
-        return m+n;
+        int suma = 0;
+        for (int i = m; i <= n; i++) {
+            suma = suma + i;
+            //suma += i;
+        }
+        return suma;
     }
+    
     public static int productori (int m, int n){ //metodo que devuelve el  producto de dos valores
-        return m*n;
+        int producte = 1;
+        for (int i = m; i <= n; i++) {
+            producte = producte * i;
+            
+        }
+        return producte;
     }
 }

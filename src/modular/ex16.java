@@ -29,8 +29,8 @@ public class ex16 {
             double solu1 = (-b + Math.sqrt(discriminant))/(2*a); //realizar equación de segundo grado +
             double solu2 = (-b - Math.sqrt(discriminant))/(2*a); //realizar equación de segundo grado -
             System.out.println("La ecuación tiene dos soluciones reales: ");
-            System.out.println("Solución 1: " + solu1);
-            System.out.println("Solución 2: " + solu2);
+            System.out.println("Solución 1: "+solu1);
+            System.out.println("Solución 2: "+solu2);
         } else if (discriminant == 0){
             //una solución
             double sol_unq = -b / (2 * a);

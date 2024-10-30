@@ -27,28 +27,20 @@ public class ex19 {
             opcion = entrada.nextInt();           
             switch (opcion) {
                 case 1 -> { //calculos con rectángulos                   
-                    System.out.println("Introduce la base del rectángulo: ");
-                    double base = entrada.nextDouble();
-                    System.out.println("Introduce la altura del rectángulo: ");
-                    double altura = entrada.nextDouble();
-                    double perimetroRect = perimetroRectangulo(base, altura);
-                    double areaRect = areaRectangulo(base, altura);
-                    System.out.println("Perímetro del rectángulo: " + perimetroRect);
-                    System.out.println("Área del rectángulo: " + areaRect);
+                    calculsRectangles(entrada);
+                    break;
                 }
                     
                 case 2 -> { //para circulos                   
-                    System.out.println("Introduce el radio del círculo: ");
-                    double radio = entrada.nextDouble();
-                    double perimetroCirc = perimetroCirculo(radio);
-                    double areaCirc = areaCirculo(radio);
-                    System.out.println("Perímetro del círculo: " + perimetroCirc);
-                    System.out.println("Área del círculo: " + areaCirc);
+                    calculsCercles(entrada);
+                    break;
                 }                   
                 case 0 -> //salir del program
-                    System.out.println("Saliendo del programa...");
+                    System.out.println("Saliendo del programa... ^^");
                     
-                default -> System.out.println("Error, opción no válida..."); //error si selección fuera del rango
+                default -> 
+                    System.out.println("Error, opción no válida..."); //error si selección fuera del rango
+                    //break;
             }
         } while (opcion != 0); //romper el bucle cuando opcion=0
     }
@@ -60,17 +52,27 @@ public class ex19 {
         System.out.print("Selecciona una opció: ");
     }   
     //metodos para cálculos con rectángulos
-    public static double perimetroRectangulo(double base, double altura){
-        return 2 * (base + altura); //calcular y devolver el perimetro
+    public static void calculsRectangles(Scanner scanner) {
+        System.out.print("Introdueix la llargada del rectangle: ");
+        double llargada = scanner.nextDouble();
+        System.out.print("Introdueix l'amplada del rectangle: ");
+        double amplada = scanner.nextDouble();
+        
+        double perimetre = 2 * (llargada + amplada);
+        double area = llargada * amplada;
+        
+        System.out.println("Perímetre del rectangle: " + perimetre);
+        System.out.println("Àrea del rectangle: "+area);
     }
-    public static double areaRectangulo(double base, double altura){
-        return base * altura; //calcular y devolver el area
-    }  
-    //metodos para calculos con círculos
-    public static double perimetroCirculo(double radio){
-        return 2 * Math.PI * radio; // calcular y devolver circunferencia
-    }
-    public static double areaCirculo(double radio){
-        return Math.PI * radio * radio; // calcular y devolver el area
+     // Mètode per fer càlculs amb cercles
+    public static void calculsCercles(Scanner scanner) {
+        System.out.print("Introdueix el radi del cercle: ");
+        double radi = scanner.nextDouble();
+        
+        double perimetre = 2 * Math.PI * radi;
+        double area = Math.PI * radi * radi;
+        
+        System.out.println("Perímetre del cercle: " + perimetre);
+        System.out.println("Àrea del cercle: " + area);
     }
 }
