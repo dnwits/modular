@@ -12,6 +12,7 @@ import java.util.Scanner;
  */
 public class ruleta {
     public static void main(String[] args) {
+        //declarar variables
         int puntos = 100;
         boolean continua;
         int numeroRuleta;
@@ -56,7 +57,10 @@ public class ruleta {
     public static int obtenirTipusAposta(){ //Pregunta al jugador el número per a apostar. Els valors permesos estan entre 1 i 38
         Scanner entrada = new Scanner(System.in);
         System.out.println("Introduzca el número al que desee apostar(1-38): ");
-        int numAposta= entrada.nextInt();       
+        int numAposta= entrada.nextInt();
+        if (numAposta<1 || numAposta>38){
+            numAposta=0;
+        }
         return numAposta;
     }
     public static String inputString(String mensaje){ //Mostra un missatge i llegeix la resposta de l'usuari
