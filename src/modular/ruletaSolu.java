@@ -58,8 +58,7 @@ public class ruletaSolu {
             quantAposta = 0;
         }
         return quantAposta;
-    }
-    
+    }   
     /**
      * Pregunta al jugador el número per a apostar.
      * Els valors permesos estan entre 1 i 38
@@ -71,8 +70,7 @@ public class ruletaSolu {
             tipusAposta = 0;
         }
         return tipusAposta;
-    }
-    
+    }   
     /**
      * Mostra un missatge i llegeix la resposta de l'usuari
      * @param missatge el missatge a mostrar
@@ -83,7 +81,6 @@ public class ruletaSolu {
         Scanner sc = new Scanner(System.in);       
         return sc.next();
     }
-
     /**
      * Tirada de la ruleta per escollir un número aleatòriament entre 1 i 36.
      * Imprimeix la paraula 'ruleta' i tants asteriscs com el número que ha sortit.
@@ -100,7 +97,6 @@ public class ruletaSolu {
         System.out.println(" "+numAleat);
         return numAleat;
     }
-
     /**
      * Calcula l'import del premi
      * @param numRuleta número que ha sortit a la ruleta
@@ -122,7 +118,6 @@ public class ruletaSolu {
         }
         return premi;
     }
-
     /**
      * Pregunta al jugador si vol continuar jugant
      * @return true si vol continuar, false en cas contrari
