@@ -14,73 +14,58 @@ import java.util.Scanner;
 public class PedraPaperTisora {
     public static void main(String[] args) {
         System.out.println("Benvingut a pedra-paper-tisora!");
+        final int nombre_tirades_max = 6;
         int puntsPersona = 0;
         int puntsMaquina = 0;
-        int tirades;
-        int guanyador=0;
-        //boolean continuar_joc=true;
-        do {            
+        int tirades = 0;
+        int guanyador;
+        int num_tirades = 0; //per a comptar el nombre de jugades
+        do {
+            //jugada persona
             int jugada_persona = jugadaPersona();
             imp_jugada(jugada_persona);
+            //jugada maquina
             int jugada_maquina = jugadaMaquina();
             imp_jugada(jugada_maquina);
-            int quiGuanyaTirada = guanyadorTirada(jugada_persona, jugada_maquina);
+            //mostra guanyador
+            guanyador = guanyadorTirada(jugada_persona, jugada_maquina);
             
-            switch (quiGuanyaTirada) {
-                case 1 -> puntsPersona=+1;
-                case 2 -> puntsMaquina=+1;
-                default -> {
-                    puntsMaquina = puntsMaquina+0;
-                    puntsPersona = puntsPersona+0;
-                }
-            }
-            marcador(puntsPersona, puntsMaquina);
-            tirades=+1;
-            //continuar_joc=true;
-            if (puntsPersona==3){
-              guanyador=+1;
-            } else if (puntsMaquina==3){
-                guanyador=+2;
-            } else if (tirades==6){
-                guanyador= guanyador+0;
-            }
             imp_guanyador(guanyador);
-            //if (puntsMaquina> puntsPersona && puntsMaquina==3){
-                //System.out.println("El guanyador és el jugador-2!!");
-                //continuar_joc= false;
-            //} else if (puntsPersona> puntsMaquina && puntsPersona==3){
-                //System.out.println("El guanyador és el jugador-1!!");
-                //continuar_joc= false;
-            //} else if (tirades==6){
-                //System.out.println("Hi ha hagut un empat :3");
-                //continuar_joc= false;
-            //}
-            //marcador(puntsPersona, puntsPersona);
-            //System.out.println("Felicitats ^^");
-        } while (puntsMaquina!=3 || puntsPersona!=3 || tirades==6);
-        //puntsMaquina==3 || puntsPersona==3 || tirades==6
+            //incremento la puntuació
+            if (guanyador == 1) {
+                puntsPersona++;
+            }
+            if (guanyador == 2) {
+                puntsMaquina++;
+            }
+            //mostro marcador
+            marcador(puntsPersona, puntsMaquina);
+            num_tirades++;
+            
+        } while ((puntsPersona < 3 && puntsMaquina < 3) && num_tirades < nombre_tirades_max);
         
     }
     public static int jugadaPersona(){
         //demana a l'usuari escollir entre pedra-paper-tisora (0,1,2) i retorna l'elecció.
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Seleccioni Pedra (0), Paper (1) o Tisora (2): ");
-        int selec_jugador = entrada.nextInt();
+        int selec_jugador = -1;
+        do {System.out.println("Seleccioni Pedra (0), Paper (1) o Tisora (2): ");
+        selec_jugador = entrada.nextInt();
+        } while (selec_jugador <0 || selec_jugador >2);
         return selec_jugador;
     }
     public static int jugadaMaquina(){
         //genera un número aleatori entre 0 i 2 (0 pedra, 1 paper, 2 tisora).
-        Random aleatori = new Random();
-        int selec_maquina =  aleatori.nextInt(0, 2);
-        return selec_maquina;
+        Random r1 = new Random();
+        return r1.nextInt(3);
     }
     public static void imp_jugada(int player){
         //imprimeix per pantalla Pedra, paper o tisora en funció del paràmetre d'entrada.
         switch (player) {
-            case 0 -> System.out.print("Pedra");
-            case 1 -> System.out.print("Paper");
-            case 2 -> System.out.print("Tisora");
-            default -> System.out.print("Error...");
+            case 0 -> System.out.println("Pedra");
+            case 1 -> System.out.println("Paper");
+            case 2 -> System.out.println("Tisora");
+            default -> System.out.println("Error...");
         }
     }
     public static int guanyadorTirada(int tiradaPlayer1, int tiradaPlayer2){
@@ -92,31 +77,32 @@ public class PedraPaperTisora {
          * Paper 1, Tisora 2: guanya tisora. 2
          * Tisora, Tisora: empat. 0
          */
-        if (tiradaPlayer1==0 && tiradaPlayer2==1){
-            return 2;
-        } else if (tiradaPlayer1==0 && tiradaPlayer2==2){
-            return 1;
-        } else if (tiradaPlayer1==1 && tiradaPlayer2==0) {
-            return 1;
-        } else if (tiradaPlayer1==1 && tiradaPlayer1==2){
-            return 2;    
-        } else if(tiradaPlayer1==2 && tiradaPlayer2==0){
-            return 2;
-        } else if (tiradaPlayer1==2 && tiradaPlayer2==1){
-            return 1;
-        } else{
-            return 0;
+        int guanyador= 0;
+        if (tiradaPlayer1 == tiradaPlayer2) {
+            guanyador = 0;
+        } else if (tiradaPlayer1 == 0 && tiradaPlayer2 == 1) {
+            guanyador = 2;
+        } else if (tiradaPlayer1 == 1 && tiradaPlayer2 == 2) {
+            guanyador = 2;
+        } else if (tiradaPlayer1 == 2 && tiradaPlayer2 == 0) {
+            guanyador = 2;
+        } else {
+            guanyador = 1;
         }
+        return guanyador;
     }
     public static void imp_guanyador(int guanyador){
         //imprimeix la frase indicant quin jugador ha guanyat.
         switch (guanyador) {
             case 1 -> System.out.println("Ha guanyat el jugador 1!!");
             case 2 -> System.out.println("Ha guanyat el jugador 2!!");
-            default -> System.out.println("Hi ha hagut un empat :3");
+            case 0 -> System.out.println("Hi ha hagut un empat :3");
         }
     }
     public static void marcador(int puntosPlayer1, int puntosPlayer2){
-        System.out.println("El jugador-1 té "+puntosPlayer1+" i el jugador-2 en té "+puntosPlayer2);
+        System.err.println("----MARCADOR----");
+        System.out.println("El jugador-1 té "+puntosPlayer1);
+        System.out.println("el jugador-2 té "+puntosPlayer2);
+        System.out.println("----------------");
     }
 }
